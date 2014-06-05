@@ -1,0 +1,60 @@
+// bower:scss
+// endbower
+
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+// .browsehappy {
+//     margin: 0.2em 0;
+//     background: #ccc;
+//     color: #000;
+//     padding: 0.2em 0;
+// }
+
+.thumbnail {
+    display: inline-block;
+
+}
+
+.thumbnail img {
+    padding: 3px;
+    height: 150px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.thumbnailWindow {
+    display: inline-block;
+    float: right;
+    width: 624px;
+    height: 300px;
+
+}
+
+.detailBody {
+    position: fixed;
+    display: inline-block;
+    float: left;
+    width: 790px;
+    height: 740px;
+    border: 1px solid blue;
+}
+
+.picWindow {
+    width: 760px;
+    height: 500px;
+    margin: auto 15px;
+    border: 1px solid red;
+}
+
+.picWindow img {
+    width: 700px;
+    height: 440px;
+    padding: 30px;
+}
+
+
+
