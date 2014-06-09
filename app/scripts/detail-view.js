@@ -32,29 +32,36 @@ var DetailView = Backbone.View.extend({
 	},
 
 	updateModel: function(){
-
-		var that = this;
+		// Not sure what this is doing. Didn't seem like it mattered.
+		// var that = this;
 
 		
-		// .set makes any changes to the model that have been chagned
+		// .set makes any changes to the model that have been changed
 		// in the url input and the caption input. updateModel then 
 		// saves those changes to the element. 
 		this.model.set({
 			url:     this.$el.find('.url-input').val(),
 			caption: this.$el.find('.caption-input').val(),
 		})
-
+		// I think this is adding the changes made above to the PhotoCollection
+		// instance called photos in my main.js. 
 		photos.add(this.model)
 
+		// This isn't working for me. Not sure why.
+		// It's supposed to display the status "Saved!"
+		// when the save button is clicked and the model is
+		// done saving.
 		this.model.save().done(function(){
 			this.$el.find('.status').html('Saved!')
 		})
 	},
 
 	createPhoto: function(){
-		// this is a new instance of the model
+		// this is instanciating Photo constructor from image-model.js
 		var photoInstance = new Photo();
-// This.model is   
+// This.model is referencing... I'm still confused on this. I know we talked 
+// about it, but as I'm trying to think through the flow of how this works
+// I'm not following it.  
 		this.model = photoInstance
 // 
 		this.$el.find('input').val('');
