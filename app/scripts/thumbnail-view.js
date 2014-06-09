@@ -1,4 +1,4 @@
-// "use strict";
+"use strict";
 
 // Create a View constructor called ThumbnailView 
 var ThumbnailView = Backbone.View.extend({
@@ -9,50 +9,51 @@ var ThumbnailView = Backbone.View.extend({
 
 	// create a template connected from the template script tag in index.html
 	template: _.template($('.thumbnail-template').text()),
-	detailmplate: _.template($('.detail-template').text()),
+	// detailmplate: _.template($('.detail-template').text()),
 
 	// list of events and the methods to run in response.
 	// this only applies to this instance's this.el and its children
+	// When a thumbnail gets clicked the showDetailView function is run.
 	events: {
 		"click": "showDetailView"
 	},
 
 	// This takes the render function below and puts it in a div and then appends it to 
-	// the container div.
+	// the thumbnailWindow div. Initialize happens automatically
+	// when the page loads. If any changes are made to the model they will be rendered back
+	// in the thumbnailWindow.
 	initialize: function() {
+		this.listenTo(this.model, 'change', this.render);
+
 		$('.thumbnailWindow').append(this.el);
 		this.render()
 	},
 
-	//  
+	//The render function. Takes the template and model attributes
+	// and stores them as renderTemplate. 
 	render: function() {
 		var renderedTemplate = this.template(this.model.attributes)
+		// here the el is getting the html of renderedTemplate added to it.
 		this.$el.html(renderedTemplate)
 	},
 
-	// Seems like this is creating a new View constructor, but 
-	// using the model constructor as an object
+// When a thumbnail gets clicked the detail view instance in main.js gets 
+// removed and then populated with that thumbnail.
 	showDetailView: function() {
-		$('.picWindow').empty();
-		$('.picWindow').append(this.el);
-		this.render()
-
-		var renderTemp = this.detailmplate(this.model.attributes)
-		this.$el.html(renderTemp);
-
-			new DetailView({model: this.model})
-		},
-	
-
+    	detailViewInstance.remove();
+    	detailViewInstance = new DetailView({model: this.model})
+		}
 })
+// a new instance of PhotoCollection from model.js. 
+// var displayPhotos = new PhotoCollection();
 
-var displayPhotos = new PhotoCollection();
- 
-displayPhotos.fetch().done(function(){
-  displayPhotos.each(function(photo){
-    new ThumbnailView({model: photo});
-  })
-});
+// this displays the models from the collection in a new instance of 
+// ThumbnailView.  
+// displayPhotos.fetch().done(function(){
+//   displayPhotos.each(function(photo){
+//     new ThumbnailView({model: photo});
+//   })
+// });
 
 
 

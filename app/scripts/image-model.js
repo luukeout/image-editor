@@ -1,5 +1,5 @@
 
-// Make you have to use var to set variables.
+// Makes you have to use var to set variables.
 "use strict";
 
 // create a Model constructor called Photo. 

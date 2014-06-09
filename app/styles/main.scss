@@ -56,5 +56,27 @@ body {
     padding: 30px;
 }
 
+.button-div {
+
+}
+.button {
+    margin-top: 15px;
+    width: 100px;
+    height: 35px;
+    padding-top: 10px;
+    background-color: #FF4949;
+    text-align: center;
+    box-shadow: inset 0 -6px 0 0 #FBACAC;
+    border-radius: 8px;
+}
+
+    .save-button {
+        display: inline-block;
+    }
+
+    .new-button {
+        display: inline-block;
+    }
+
 
 
