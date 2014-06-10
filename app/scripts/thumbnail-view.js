@@ -39,10 +39,10 @@ var ThumbnailView = Backbone.View.extend({
 
 // When a thumbnail gets clicked the detail view instance in main.js gets 
 // removed and then populated with that thumbnail.
-	showDetailView: function() {
-    	detailViewInstance.remove();
-    	detailViewInstance = new DetailView({model: this.model})
-		}
+	// showDetailView: function() {
+ //    	detailViewInstance.remove();
+ //    	detailViewInstance = new DetailView({model: this.model})
+	// 	}
 })
 // a new instance of PhotoCollection from model.js. 
 // var displayPhotos = new PhotoCollection();

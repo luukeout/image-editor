@@ -13,5 +13,5 @@ var Photo = Backbone.Model.extend({
 var PhotoCollection = Backbone.Collection.extend({
   model: Photo,
   // This is the url it's going to use to communicate back and forth with the server.
-  url: 'http://tiny-pizza-server.herokuapp.com/collections/photos'
+  url: 'http://tiny-pizza-server.herokuapp.com/collections/lukes-pics'
 })

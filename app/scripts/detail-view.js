@@ -32,8 +32,9 @@ var DetailView = Backbone.View.extend({
 	},
 
 	updateModel: function(){
-		// Not sure what this is doing. Didn't seem like it mattered.
-		// var that = this;
+		// renaming this so I can use "that" in that.$el.find. It is only
+		// relevant in the function to show the 'Saved!' status. 
+		var that = this;
 
 		
 		// .set makes any changes to the model that have been changed
@@ -47,17 +48,16 @@ var DetailView = Backbone.View.extend({
 		// instance called photos in my main.js. 
 		photos.add(this.model)
 
-		// This isn't working for me. Not sure why.
 		// It's supposed to display the status "Saved!"
 		// when the save button is clicked and the model is
 		// done saving.
 		this.model.save().done(function(){
-			this.$el.find('.status').html('Saved!')
+			that.$el.find('.status').html('Saved!')
 		})
 	},
 
 	createPhoto: function(){
-		// this is instanciating Photo constructor from image-model.js
+		// this is instantiating Photo constructor from image-model.js
 		var photoInstance = new Photo();
 // This.model is referencing... I'm still confused on this. I know we talked 
 // about it, but as I'm trying to think through the flow of how this works
